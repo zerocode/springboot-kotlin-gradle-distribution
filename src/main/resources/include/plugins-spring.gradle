@@ -1,0 +1,5 @@
+apply plugin: org.springframework.boot.gradle.plugin.SpringBootPlugin
+apply plugin: io.spring.gradle.dependencymanagement.DependencyManagementPlugin
+apply plugin: org.jetbrains.kotlin.allopen.gradle.SpringGradleSubplugin
+apply plugin: org.jetbrains.kotlin.noarg.gradle.NoArgGradleSubplugin
+apply plugin: org.jetbrains.kotlin.noarg.gradle.KotlinJpaSubplugin

@@ -1,0 +1,25 @@
+task cleanBuildDirectories(type: Delete) {
+    delete "${projectDir}/out"
+}
+
+tasks.clean.dependsOn(cleanBuildDirectories)
+
+task externalServiceTests(type: Test) {
+    useJUnitPlatform {
+        includeTags "externalServiceTest"
+    }
+}
+
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    mainClass = 'com.pinterest.ktlint.Main'
+    args "**/*.kt"
+}
+
+task ktlintFormat(type: JavaExec, group: "verification") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    mainClass = 'com.pinterest.ktlint.Main'
+    args "-F", "**/*.kt"
+}

@@ -1,0 +1,37 @@
+initscript {
+    $repositories$
+
+    dependencies {
+        $init-dependencies-kotlin$
+        $init-dependencies-spring$
+    }
+}
+
+allprojects {
+    $plugins-kotlin$
+    $plugins-spring$
+
+    $group-version$
+
+    $kotlin-compile$
+
+    $repositories$
+
+    $configurations$
+
+    $dependency-management$
+
+    dependencies {
+        $dependencies-kotlin$
+        $dependencies-springboot$
+        $dependencies-springboot-test$
+        $dependencies-test$
+    }
+
+    $test$
+
+    $tasks$
+
+    bootJar.enabled = false
+    jar.enabled = true
+}

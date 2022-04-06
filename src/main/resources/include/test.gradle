@@ -1,0 +1,40 @@
+test {
+    apply plugin: 'jacoco'
+
+    failFast = true
+
+    jacocoTestReport {
+
+        def coverageSourceDirs = []
+
+        rootProject.allprojects.forEach {
+            it.subprojects.forEach {
+                coverageSourceDirs << "$it.buildDir/classes/kotlin/main"
+            }
+        }
+
+        classDirectories.setFrom(files(coverageSourceDirs))
+        additionalSourceDirs.setFrom(files(coverageSourceDirs))
+        sourceDirectories.setFrom(files(coverageSourceDirs))
+
+        reports {
+            csv.required = false
+            xml.required = true
+            xml.destination file("$buildDir/jacoco/coverage.xml")
+            html.required = true
+            html.destination file("$buildDir/jacoco/coverage.html")
+        }
+    }
+
+    useJUnitPlatform {
+        excludeTags "externalServiceTest"
+    }
+
+    testLogging.events = ["standard_error", "failed"]
+
+    testLogging.exceptionFormat = "full"
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}

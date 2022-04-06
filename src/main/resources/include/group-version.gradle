@@ -1,0 +1,11 @@
+if(project.hasProperty("groupRoot")) {
+    group "$groupRoot"
+} else{
+    group "zerocode"
+}
+
+if(project.hasProperty("buildVersion")) {
+    version "$buildVersion"
+} else{
+    version "1.0.0-SNAPSHOT"
+}

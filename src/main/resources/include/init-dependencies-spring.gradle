@@ -1,0 +1,4 @@
+classpath "org.jetbrains.kotlin.plugin.spring:org.jetbrains.kotlin.plugin.spring.gradle.plugin:1.6.20"
+classpath "org.jetbrains.kotlin.plugin.noarg:org.jetbrains.kotlin.plugin.noarg.gradle.plugin:1.6.20"
+classpath "org.springframework.boot:spring-boot-gradle-plugin:2.6.6"
+classpath 'com.palantir.gradle.docker:gradle-docker:0.32.0'
